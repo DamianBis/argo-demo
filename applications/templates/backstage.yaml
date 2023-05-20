@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prelive
+  name: backstage-{{ .Values.environmentName }}
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: prelive
+  project: {{ .Values.environmentName }}
   syncPolicy:
     automated:
       prune: true
@@ -15,11 +15,7 @@ spec:
   destination:
     namespace: argocd
     server: 'https://kubernetes.default.svc'
-  project: default
   source:
-    path: applications
+    path: Apps/backstage
     repoURL: git@github.com:DamianBis/argo-demo.git
     targetRevision: main
-    helm:
-      valueFiles:
-      - values-prelive.yaml

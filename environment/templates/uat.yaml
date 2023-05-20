@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prelive
+  name: uat
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: prelive
+  project: uat
   syncPolicy:
     automated:
       prune: true
@@ -22,4 +22,4 @@ spec:
     targetRevision: main
     helm:
       valueFiles:
-      - values-prelive.yaml
+      - values-uat.yaml

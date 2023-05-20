@@ -1,11 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: applications-{{ .Values.environmentName }}
+  name: backstage-stuff-{{ .Values.environmentName }}
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
+  project: {{ .Values.environmentName }}
   syncPolicy:
     automated:
       prune: true
@@ -16,6 +17,9 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    path: sync-waves
+    path: applicationsasdasdasdasdasdasdasd
     repoURL: git@github.com:DamianBis/argo-demo.git
     targetRevision: main
+    helm:
+      valueFiles:
+      - values-{{ .Values.environmentName }}.yaml
