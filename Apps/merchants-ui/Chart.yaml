@@ -1,0 +1,4 @@
+apiVersion: v2
+name: merchants-ui
+description: Merchants UI
+version: 1.0.0
