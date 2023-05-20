@@ -20,5 +20,4 @@ spec:
     repoURL: git@github.com:DamianBis/argo-demo.git
     targetRevision: main
     valueFiles:
-    - values-prod.yaml
-    - values.yaml
+      - values-prod.yaml
