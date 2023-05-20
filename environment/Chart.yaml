@@ -1,3 +1,4 @@
 apiVersion: v2
 name: environments
 description: Cashrewards environments
+version: 1.0.0
