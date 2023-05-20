@@ -1,4 +1,4 @@
 apiVersion: v2
-name: environments
-description: Cashrewards environments
+name: backstage
+description: Backstage
 version: 1.0.0
