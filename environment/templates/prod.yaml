@@ -22,4 +22,4 @@ spec:
     helm:
       valueFiles:
       - values.yaml
-      - values-prelive.yaml
+      - values-prod.yaml
