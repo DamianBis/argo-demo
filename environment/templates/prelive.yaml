@@ -14,3 +14,6 @@ spec:
     path: applications
     repoURL: git@github.com:DamianBis/argo-demo.git
     targetRevision: main
+    valueFiles:
+    - values.yaml
+    - values-prod.yaml

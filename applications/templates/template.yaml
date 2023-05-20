@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: applications-{{ .Values.environmentName }}}
+  name: applications-{{ .Values.environmentName }}
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
