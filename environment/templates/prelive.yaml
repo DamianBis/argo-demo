@@ -21,5 +21,4 @@ spec:
     targetRevision: main
     helm:
       valueFiles:
-      - values.yaml
       - values-prelive.yaml
