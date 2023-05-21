@@ -18,7 +18,7 @@ spec:
       allowEmpty: true
       selfHeal: true
   destination:
-    namespace: flux-system
+    namespace: dev
     server: 'https://kubernetes.default.svc'
   project: default
   source:
