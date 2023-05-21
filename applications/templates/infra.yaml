@@ -5,7 +5,7 @@ metadata:
   name: {{ .Values.environmentName }}-tf
 spec:
   interval: 1m
-  url: ssh://git@github.com:22/DamianBis/argo-demo.git
+  url: https://github.com/DamianBis/argo-demo.git
   secretRef:
     name: podinfo-auth
   ref:

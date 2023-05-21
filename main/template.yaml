@@ -12,5 +12,5 @@ spec:
   project: default
   source:
     path: environment
-    repoURL: ssh://git@github.com:22/DamianBis/argo-demo.git
+    repoURL: https://github.com/DamianBis/argo-demo.git
     targetRevision: main
