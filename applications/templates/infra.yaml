@@ -1,0 +1,24 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: {{ .Values.environmentName }}-tf
+spec:
+  interval: 1m
+  url: git@github.com:DamianBis/argo-demo.git
+  ref:
+    branch: main
+---
+apiVersion: infra.contrib.fluxcd.io/v1alpha1
+kind: Terraform
+metadata:
+  name: {{ .Values.environmentName }}-tf
+spec:
+  path: ./applications/tf/
+  approvePlan: ""
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: {{ .Values.environmentName }}-tf
+  writeOutputsToSecret:
+    name: {{ .Values.environmentName }}-outputs
