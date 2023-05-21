@@ -14,7 +14,7 @@ spec:
   source:
     chart: tf-controller
     repoURL: https://weaveworks.github.io/tf-controller
-    targetRevision: 0.11.0
+    targetRevision: 0.14.0
     helm:
       releaseName: tf-controller
   destination:
