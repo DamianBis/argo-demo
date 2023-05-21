@@ -4,7 +4,7 @@ metadata:
   name: tf-controller
   namespace: argocd
 spec:
-  project: defaultspec:
+  project: default
   syncPolicy:
     syncOptions:
       - FluxSubsystem=true
