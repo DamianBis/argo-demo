@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tf-controller
+  namespace: argocd
+spec:
+  project: defaultspec:
+  syncPolicy:
+    syncOptions:
+      - FluxSubsystem=true
+      - CreateNamespace=true
+  source:
+    chart: tf-controller
+    repoURL: https://weaveworks.github.io/tf-controller
+    targetRevision: 0.11.0
+    helm:
+      releaseName: tf-controller
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: flux-system
