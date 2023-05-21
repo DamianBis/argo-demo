@@ -11,18 +11,6 @@ spec:
   ref:
     branch: main
 ---
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: {{ .Values.environmentName }}
-spec:
-  interval: 1m0s
-  path: ./applications/
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: {{ .Values.environmentName }}-tf
----
 apiVersion: infra.contrib.fluxcd.io/v1alpha1
 kind: Terraform
 metadata:
