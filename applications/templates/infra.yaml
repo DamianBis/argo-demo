@@ -17,7 +17,7 @@ metadata:
   name: {{ .Values.environmentName }}-tf
 spec:
   path: ./applications/tf/
-  approvePlan: ""
+  approvePlan: auto
   interval: 1m
   sourceRef:
     kind: GitRepository
