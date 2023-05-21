@@ -5,7 +5,7 @@ metadata:
   name: {{ .Values.environmentName }}-tf
 spec:
   interval: 1m
-  url: git@github.com:DamianBis/argo-demo.git
+  url: ssh://git@github.com:22/argo-demo.git
   ref:
     branch: main
 ---
