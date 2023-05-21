@@ -9,6 +9,8 @@ spec:
     syncOptions:
       - FluxSubsystem=true
       - CreateNamespace=true
+      - AutoCreateFluxResources=true
+      - ApplyOutOfSyncOnly=true
   source:
     chart: tf-controller
     repoURL: https://weaveworks.github.io/tf-controller
