@@ -23,7 +23,7 @@ spec:
   project: default
   source:
     path: applications
-    repoURL: git@github.com:DamianBis/argo-demo.git
+    repoURL: ssh://git@github.com:22/DamianBis/argo-demo.git
     targetRevision: main
     helm:
       valueFiles:
