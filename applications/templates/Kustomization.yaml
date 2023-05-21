@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.environmentName }}
 spec:
   interval: 1m0s
-  path: ./applications/
+  path: ./applications/templates
   prune: true
   sourceRef:
     kind: GitRepository
