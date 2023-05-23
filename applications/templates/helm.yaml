@@ -1,0 +1,15 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: {{ .Values.environmentName }}
+spec:
+  interval: 1m0s
+  path: ./applications
+  prune: true
+  chart:
+    spec:
+      chart: applications
+      sourceRef:
+        kind: GitRepository
+        name: {{ .Values.environmentName }}-tf
+      interval: 1m
