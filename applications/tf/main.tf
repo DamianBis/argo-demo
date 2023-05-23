@@ -9,6 +9,17 @@ terraform {
   required_version = ">= 1.2.0"
 }
 
+variable "access_key" {
+ type = string
+ description = "aws access key"
+}
+
+
+variable "secret_key" {
+ type = string
+ description = "aws secret key"
+}
+
 provider "aws" {
   region  = "ap-southeast-2"
   access_key = var.access_key
