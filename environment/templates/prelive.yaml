@@ -1,25 +1,33 @@
----
-apiVersion: source.toolkit.fluxcd.io/v1beta1
-kind: GitRepository
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
-  name: prelive-tf
+  name: appr
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
-  interval: 1m
-  url: https://github.com/DamianBis/argo-demo.git
-  ref:
-    branch: main
----
-apiVersion: infra.contrib.fluxcd.io/v1alpha1
-kind: Terraform
-metadata:
-  name: prelive-tf
-spec:
-  path: ./applications/tf/
-  approvePlan: auto
-  interval: 1m
-  sourceRef:
-    kind: GitRepository
-    name: prelive-tf
-  writeOutputsToSecret:
-    name: prelive-outputs
----
+  project: appr
+  syncPolicy:
+    syncOptions:
+      - FluxSubsystem=true
+      - CreateNamespace=true
+      - AutoCreateFluxResources=true
+      - ApplyOutOfSyncOnly=true
+    automated:
+      prune: true
+      allowEmpty: true
+      selfHeal: true
+  destination:
+    namespace: dev
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    repoURL: https://damianbis.github.io/helm-charts/
+    targetRevision: 0.1.0
+    chart: terraform
+    helm:
+      values: |
+        git:
+          url: https://github.com/DamianBis/argo-demo.git
+          path: ./applications/tf/
+        environmentName: prelive
