@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: appr
+  name: prelive
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: appr
+  project: prelive
   syncPolicy:
     syncOptions:
       - FluxSubsystem=true
