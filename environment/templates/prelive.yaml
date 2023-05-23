@@ -22,6 +22,8 @@ spec:
     server: 'https://kubernetes.default.svc'
   project: default
   source:
+    directory:
+      recurse: false
     path: applications
     repoURL: https://github.com/DamianBis/argo-demo.git
     targetRevision: main
