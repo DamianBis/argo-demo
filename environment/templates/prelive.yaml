@@ -9,7 +9,10 @@ spec:
   project: prelive
   syncPolicy:
     syncOptions:
+      - FluxSubsystem=true
       - CreateNamespace=true
+      - AutoCreateFluxResources=true
+      - ApplyOutOfSyncOnly=true
     automated:
       prune: true
       allowEmpty: true
