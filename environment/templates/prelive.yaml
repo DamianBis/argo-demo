@@ -23,7 +23,7 @@ spec:
   project: default
   source:
     repoURL: https://damianbis.github.io/helm-charts/
-    targetRevision: 0.1.0
+    targetRevision: 0.2.0
     chart: terraform
     helm:
       values: |
