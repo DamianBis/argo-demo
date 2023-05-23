@@ -25,6 +25,7 @@ spec:
     path: applications
     repoURL: https://github.com/DamianBis/argo-demo.git
     targetRevision: main
-    helm:
+    helm:      
+      releaseName: prelive
       valueFiles:
       - values-prelive.yaml
