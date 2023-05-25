@@ -1,1 +1,0 @@
-bucket_prefix = "damian-prod-bucket"
