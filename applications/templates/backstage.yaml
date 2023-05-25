@@ -1,24 +1,28 @@
-# apiVersion: argoproj.io/v1alpha1
-# kind: Application
-# metadata:
-#   name: backstage-{{ .Values.environmentName }}
-#   namespace: argocd
-#   finalizers:
-#   - resources-finalizer.argocd.argoproj.io
-# spec:
-#   project: {{ .Values.environmentName }}
-#   syncPolicy:
-#     automated:
-#       prune: true
-#       allowEmpty: true
-#       selfHeal: true
-#   destination:
-#     namespace: argocd
-#     server: 'https://kubernetes.default.svc'
-#   source:
-#     path: Apps/backstage
-#     repoURL: git@github.com:DamianBis/argo-demo.git
-#     targetRevision: main
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-argo-demo-app-{{ .Values.environmentName }}
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true
+      selfHeal: true
+  destination:
+    namespace: argocd
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: deploy
+    repoURL: git@github.com:DamianBis/argo-demo-app-1.git
+    targetRevision: main
+    helm:
+      values: |
+        environmentName: {{ .Values.environmentName }}
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
