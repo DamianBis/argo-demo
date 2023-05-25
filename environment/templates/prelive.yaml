@@ -1,33 +1,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prelive
+  name: prelive-applications
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: prelive
+  project: default
   syncPolicy:
     syncOptions:
-      - FluxSubsystem=true
-      - CreateNamespace=true
-      - AutoCreateFluxResources=true
-      - ApplyOutOfSyncOnly=true
     automated:
       prune: true
       allowEmpty: true
       selfHeal: true
   destination:
-    namespace: dev
+    namespace: argocd
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    repoURL: https://damianbis.github.io/helm-charts/
-    targetRevision: 0.2.0
-    chart: terraform
+    path: applications
+    repoURL: git@github.com:DamianBis/argo-demo.git
+    targetRevision: main
     helm:
       values: |
-        git:
-          url: https://github.com/DamianBis/argo-demo.git
-          path: ./applications/tf/
         environmentName: prelive
