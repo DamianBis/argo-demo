@@ -22,3 +22,6 @@ spec:
     helm:
       values: |
         environmentName: {{ .Values.environmentName }}
+      valueFiles:
+        - values.yaml
+        - values-{{ .Values.environmentName }}.yaml
