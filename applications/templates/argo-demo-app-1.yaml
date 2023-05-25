@@ -17,7 +17,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: deploy
-    repoURL: git@github.com:DamianBis/argo-demo-app-1.git
+    repoURL: https://github.com/DamianBis/argo-demo-app-1.git
     targetRevision: main
     helm:
       values: |
