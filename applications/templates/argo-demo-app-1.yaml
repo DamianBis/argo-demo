@@ -22,13 +22,3 @@ spec:
     helm:
       values: |
         environmentName: {{ .Values.environmentName }}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ .Values.environmentName }}-demo
-data:
-  player_initial_lives: "3"
-  ui_properties_file_name: "user-interface.properties"
-  game.properties: |
-    enemy.types=aliens,monsters
