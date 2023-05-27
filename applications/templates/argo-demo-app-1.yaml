@@ -24,4 +24,7 @@ spec:
         environmentName: {{ .Values.environmentName }}
       valueFiles:
         - values.yaml
+{{- if and (ne .Values.environmentName "prod") (ne .Values.environmentName "prelive") }} 
+        - values-staging.yaml
+{{- end }}
         - values-{{ .Values.environmentName }}.yaml
